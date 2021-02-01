@@ -1,7 +1,8 @@
 //mod chapter2;
 //mod chapter3;
 //mod chapter4;
-mod chapter5;
+//mod chapter5;
+mod chapter6;
 
 fn main() {
    //chapter2::run_chapter_2();
@@ -12,6 +13,7 @@ fn main() {
    // chapter3::test_if_condition(21);
    // chapter3::test_countdown();
    //chapter4::run();
-    chapter5::run();
+   // chapter5::run();
+    chapter6::run();
 }
 
