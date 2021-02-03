@@ -37,3 +37,12 @@ pub fn test_countdown(){
     }
     println!("LiftOff!");
 }
+
+fn main() {
+    print_tuples();
+    test_array_mut();
+    test_if_condition(9);
+    test_if_condition(11);
+    test_if_condition(21);
+    test_countdown();
+}

@@ -99,3 +99,7 @@ fn find_first_word(slice: &str) -> &str {
     }
     &slice[..]
 }
+
+fn main() {
+   run();
+}

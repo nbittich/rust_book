@@ -54,3 +54,7 @@ impl Status {
         }
     }
 }
+
+fn main() {
+    run();
+}

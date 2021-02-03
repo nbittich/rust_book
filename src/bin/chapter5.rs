@@ -65,3 +65,7 @@ impl Display for User{
         write!(f, "age: {}, firstname: {}, lastname: {}, active: {}, email: {}",self.age, self.firstname, self.lastname, self.active, self.email)
     }
 }
+
+fn main() {
+    run();
+}

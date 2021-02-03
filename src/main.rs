@@ -1,19 +1,11 @@
-//mod chapter2;
-//mod chapter3;
-//mod chapter4;
-//mod chapter5;
-mod chapter6;
+use testrust::account::entity::{User, Role};
+use testrust::account::service::random_password;
+use testrust::account::service::random_role;
 
 fn main() {
-   //chapter2::run_chapter_2();
-   // chapter3::print_tuples();
-   // chapter3::test_array_mut();
-   // chapter3::test_if_condition(9);
-   // chapter3::test_if_condition(11);
-   // chapter3::test_if_condition(21);
-   // chapter3::test_countdown();
-   //chapter4::run();
-   // chapter5::run();
-    chapter6::run();
+    let user: User = User::create_user("Nordine".to_string(),"Bittich".to_string(), 32, Role::ADMIN, "strong_password".to_string());
+    println!("Password matches: {}", user.check_password("ouloulou"));
+    println!("Password matches: {}", user.check_password("strong_password"));
+    println!("Password random: {}", random_password());
+    println!("Role random: {:?}", random_role());
 }
-

@@ -35,3 +35,7 @@ struct ResultComp {
     message: String,
     result: bool,
 }
+
+fn main() {
+    run_chapter_2()
+}
