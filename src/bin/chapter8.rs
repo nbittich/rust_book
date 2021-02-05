@@ -26,7 +26,10 @@ fn main() {
     println!("median: {}, avg: {}", median, avg);
     map.iter().for_each(|e|{
         println!("occurrence for {}: {}",e.0, e.1);
-    })
+    });
+
+    exercise2("apple".to_string());
+    exercise2("first".to_string());
 
 }
 
@@ -50,4 +53,27 @@ fn exercise1(list_of_integers:&mut Vec<u32>) -> (u32, u32, HashMap<u32, u32>) {
 
 
    (median, avg, occurrences)
+}
+
+
+fn exercise2(a_string: String){
+    let mut pig_latin = String::new();
+    if a_string.chars().count() > 1 {
+        let mut chars = a_string.chars();
+        let first_letter = chars.next();
+        pig_latin.push_str(chars.as_str());
+       if let Some(c) = first_letter {
+           if c.is_ascii_alphabetic() {
+               match c {
+                   'A'|'E'|'I'|'O'|'U'| 'Y' | 'a'|'e'|'i'|'o'|'u'| 'y' => {
+                       pig_latin.insert(0, c);
+                       pig_latin.push_str("-hay");
+                   }
+                   _ => pig_latin.push_str(format!("-{}ay",c).as_str())
+               }
+           }
+       }
+    }
+    println!("Pig latin: {}", pig_latin);
+
 }
