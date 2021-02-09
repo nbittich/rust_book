@@ -5,7 +5,7 @@ const ARG_FILE_NAME: &str = "filename=";
 
 pub fn parse_args(arguments: &Vec<String>) -> HashMap<KnownArgument, &str> {
     let mut parsed_args: HashMap<KnownArgument, &str> = HashMap::new();
-    if let Some(query) =map_arg(arguments, ARG_QUERY) {
+    if let Some(query) = map_arg(arguments, ARG_QUERY) {
         parsed_args.entry(KnownArgument::Query).or_insert(query);
     }
     if let Some(query) = map_arg(arguments, ARG_FILE_NAME) {

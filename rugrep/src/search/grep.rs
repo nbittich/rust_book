@@ -1,12 +1,12 @@
-pub fn grep(file_str:&String, search: &str ) -> Vec<Line>{
+pub fn grep(file_str: &String, search: &str) -> Vec<Line> {
     let mut result: Vec<Line> = vec![];
     let split = file_str.split("\n");
     let mut index = 1;
     for line in split {
         if line.contains(search) {
-            result.push(Line{
+            result.push(Line {
                 index,
-                line: line.to_string()
+                line: line.to_string(),
             });
         }
         index += 1;
@@ -16,5 +16,5 @@ pub fn grep(file_str:&String, search: &str ) -> Vec<Line>{
 
 pub struct Line {
     pub index: u32,
-    pub line: String
+    pub line: String,
 }
