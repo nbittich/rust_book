@@ -1,19 +1,17 @@
-use std::fs;
+pub mod argument;
+pub mod search;
+
+use crate::argument::parser::KnownArgument;
+
+
 fn main() {
     let arguments: Vec<String> = std::env::args().collect();
-    println!("{:?}",arguments);
-    let search = &arguments[1];
-    let file_name = &arguments[2];
-    println!("{}",search);
-    println!("{}",file_name);
-    let poem = fs::read_to_string(file_name).unwrap();
-    let split = poem.split("\n");
-    let mut index = 1;
-    for line in split {
-        if line.contains(search) {
-            println!("{}: {}",index, line);
-        }
-        index+=1;
-    }
+    let parsed_args = argument::parser::parse_args(&arguments);
+    let search = parsed_args.get(&KnownArgument::Query).unwrap();
+    let file_name = parsed_args.get(&KnownArgument::FileName).unwrap();
 
+    let poem = search::read::read_file(file_name).unwrap();
+    for l in search::grep::grep(&poem, search){
+        println!("{}: {}", l.index, l.line);
+    }
 }
